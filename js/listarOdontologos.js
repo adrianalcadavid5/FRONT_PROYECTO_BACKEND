@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const noOdontologosModal = new bootstrap.Modal(document.getElementById("noOdontologosModal"));
+
+
 const apiURL = "http://localhost:8080";
 
 // Obtener la referencia a la tabla y al modal
@@ -17,6 +21,15 @@ function fetchOdontologos() {
       // Limpiar el contenido actual de la tabla
       tableBody.innerHTML = "";
 
+      console.log(data);
+      //si el array de odontologos está vacio
+      if (data.length === 0) {
+        noOdontologosModal.show();
+
+        // Mostrar el modal de aviso 
+        
+      } else {
+
       // Insertar los datos en la tabla
       data.forEach((odontologo, index) => {
         const row = document.createElement("tr");
@@ -34,6 +47,7 @@ function fetchOdontologos() {
 
         tableBody.appendChild(row);
       });
+    }
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
@@ -129,3 +143,4 @@ deleteOdontologo = function (id) {
 
 // Llamar a la función para obtener y mostrar los odontólogos
 fetchOdontologos();
+});
