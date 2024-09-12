@@ -33,7 +33,7 @@ function fetchTurnos() {
           <td>${odontologo.matricula || 'N/A'}</td>
           <td>${turno.fecha || 'N/A'}</td>
           <td>
-            <button class="btn btn-primary btn-sm" onclick="editTurno(${turno.id})">Modificar</button>
+ 
             <button class="btn btn-danger btn-sm" onclick="deleteTurno(${turno.id})">Eliminar</button>
           </td>
         `;
